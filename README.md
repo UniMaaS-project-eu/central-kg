@@ -23,7 +23,7 @@ The knowledge graph is based on the MSC-Ontology which can be found here: https:
 In order to support the interoperability between the different processes in the MSC-Ontology, it is necessary to infer the predicate sc:hasNextStep. 
 This inference is according to which product are input and output of each process, to support this we create a custom rule set in the centralKG GraphDB. 
 
-**IMPORTANT: This rule set creation should be done BEFORE inserting data into the GraphDB repository.
+**IMPORTANT: This rule set creation should be done BEFORE inserting data into the GraphDB repository**.
 
 To add this rule, in the SPARQL UI of GraphDB run the following commands:
 
