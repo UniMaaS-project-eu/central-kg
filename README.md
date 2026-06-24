@@ -18,7 +18,13 @@ To stop GraphDB and API run:
 
 The knowledge graph is based on the MSC-Ontology which can be found here: https://github.com/UniMaaS-project-eu/MSC-Ontology-RDF
 
-## Adding Inference Rules for MSC-Ontology
+## API
+
+See [README](./centralKG_API/README.md).
+
+## GraphDB
+
+### Adding Inference Rules for MSC-Ontology
 
 In order to support the interoperability between the different processes in the MSC-Ontology, it is necessary to infer the predicate sc:hasNextStep. 
 This inference is according to which product are input and output of each process, to support this we create a custom rule set in the centralKG GraphDB. 

@@ -1,29 +1,43 @@
 # Access API for the Central KG
 
-This folder implements the access API for the Central KG.
+This folder implements the access API for the Central KG, as defined by the [openapi def](../docs/openapi.json).
 
 ## Requirements
 
+Install a conda distribution:
+```sh
+# install
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
+
+# check (in a new terminal)
+conda list
+```
+
 Install the required libraries for running this API, in a conda environment the installation be done through the following:
 
-`conda install -c conda-forge fastapi
-conda install -c conda-forge uvicorn
+```sh
+conda install -c conda-forge fastapi
 conda install conda-forge::pydantic
-pip install fastapi[all] python-dotenv uvicorn`
+pip install fastapi[all] python-dotenv uvicorn
+```
 
 It expects an SPARQL endpoint accessible and the endpoint user and password. 
 This can be set in the api.env file through the fields:
 
-`
+```sh
 DMS_SPARQL_ADDRESS=localhost:3030/msc/data
 DMS_SPARQL_USER=admin
 DMS_SPARQL_PASSWORD=mypassword
-`
+```
 
 To run the api, execute:
 
-`cd centraKG_api
+```sh
+cd centralKG_API
 uvicorn main:app --reload`
+```
 
 The api will run on the port **8000** by default.
 
@@ -34,6 +48,9 @@ This serves as the mid layer for accesing the central knowledge graph in UniMaaS
 The full API documentation, requstd and expected responses can be verified through the swagger in **localhost:8000/docs**
 
 
+## Useful documentation
 
+- Uvicorn
+  - [Home](https://uvicorn.dev/)
 
 
