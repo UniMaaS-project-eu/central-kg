@@ -8,7 +8,7 @@
 @prefix :        <http://www.ontotext.com/config/repository#>.
 
 [] a rep:Repository ;
-   rep:repositoryID "centralKG2" ;
+   rep:repositoryID "centralKG" ;
    rep:repositoryImpl [
       rep:repositoryType "graphdb:SailRepository" ;
       sr:sailImpl [
@@ -34,7 +34,8 @@
          graphdb:repository-type "file-repository" ;
 
          # imports
-         graphdb:imports "config/MSC-ontology-1.2.0.ttl";
-         graphdb:imports: "config/next-steps.ttl"
+         graphdb:imports "/config/MSC-ontology-1.2.0.ttl";
+         #ms 20260630 does not seem to work for several imports
+         #graphdb:imports "/config/next-steps.ttl" 
       ]
    ].
