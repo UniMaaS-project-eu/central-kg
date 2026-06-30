@@ -34,7 +34,7 @@
          graphdb:repository-type "file-repository" ;
 
          # imports
-         graphdb:imports "../MSC-Ontology-RDF/data/ontology/MSC-ontology-1.2.0.ttl";
-         graphdb:imports: "../owl/next-steps.ttl"
+         graphdb:imports "config/MSC-ontology-1.2.0.ttl";
+         graphdb:imports: "config/next-steps.ttl"
       ]
    ].
