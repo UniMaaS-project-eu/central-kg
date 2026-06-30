@@ -1,0 +1,3 @@
+[submodule "MSC-Ontology-RDF"]
+	path = MSC-Ontology-RDF
+	url = https://github.com/UniMaaS-project-eu/MSC-Ontology-RDF.git

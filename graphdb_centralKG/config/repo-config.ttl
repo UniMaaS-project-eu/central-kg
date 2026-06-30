@@ -1,33 +1,40 @@
-@prefix : <http://www.ontotext.com/config/repository#>.
-@prefix owlim: <http://www.ontotext.com/trree/owlim#>.
-@prefix rep: <http://www.openrdf.org/config/repository#>.
-@prefix sr: <http://www.openrdf.org/config/repository/sail#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rep:  <http://www.openrdf.org/config/repository#>.
+@prefix sr:   <http://www.openrdf.org/config/repository/sail#>.
 @prefix sail: <http://www.openrdf.org/config/sail#>.
 
+@prefix owlim:   <http://www.ontotext.com/trree/owlim#>.
+@prefix graphdb: <http://www.ontotext.com/config/graphdb#>.
+@prefix :        <http://www.ontotext.com/config/repository#>.
+
 [] a rep:Repository ;
-   rep:repositoryID "centralKG" ;
+   rep:repositoryID "centralKG2" ;
    rep:repositoryImpl [
       rep:repositoryType "graphdb:SailRepository" ;
       sr:sailImpl [
          sail:sailType "graphdb:Sail" ;
 
          # Inference ruleset
-         owlim:ruleset "owl2-ql" ;
+         graphdb:ruleset "owl2-rl" ;
 
          # Required for SPARQL UPDATE
          owlim:enable-sail-updates "true" ;
 
          # Indexing options
-         owlim:enablePredicateList "true" ;
-         owlim:enableContextIndex "true" ;
+         graphdb:enablePredicateList "true" ;
+         graphdb:enable-context-index "true" ;
 
          # Namespace configuration
-         owlim:base-URL "http://unimaas-project.eu/kg/" ;
-         owlim:defaultNS "http://unimaas-project.eu/kg/" ;
+         graphdb:base-URL "http://unimaas-project.eu/kg/" ;
+         graphdb:defaultNS "http://unimaas-project.eu/kg/" ;
 
          # Storage configuration
-         owlim:entity-index-size "20000000" ;
-         owlim:entity-id-size "32" ;
-         owlim:repository-type "file-repository" ;
+         graphdb:entity-index-size "20000000" ;
+         graphdb:entity-id-size "32" ;
+         graphdb:repository-type "file-repository" ;
+
+         # imports
+         graphdb:imports "../MSC-Ontology-RDF/data/ontology/MSC-ontology-1.2.0.ttl";
+         graphdb:imports: "../owl/next-steps.ttl"
       ]
    ].

@@ -1,15 +1,9 @@
-#!/bin/bash
-set -e
+. .env
 
-ADMIN_USER="admin"
-ADMIN_PASS="mypassword"
-REPO_ID="centralKG"
+echo "Create repo ${centralKG}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_CONFIG="$SCRIPT_DIR/config/repo-config.ttl"
-
-echo "Starting GraphDB..."
-docker compose up -d
 
 echo "Waiting for GraphDB..."
 
@@ -31,10 +25,3 @@ curl -v \
      -u "$ADMIN_USER:$ADMIN_PASS" \
      -F "config=@${REPO_CONFIG}" \
      http://localhost:7200/rest/repositories
-
-echo "Repository created."
-
-echo "Starting API..."
-
-cd ../centralKG_api
-uvicorn main:app --host 0.0.0.0 --port 8000

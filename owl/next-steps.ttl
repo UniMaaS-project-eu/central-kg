@@ -1,0 +1,21 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+@prefix sc: <http://unimaas-project.eu/MSCOntology#> .
+
+sc:inputOf
+    rdf:type owl:ObjectProperty;
+    owl:inverseOf sc:hasInput.
+    
+sc:outputOf
+    rdf:type owl:ObjectProperty;
+    owl:inverseOf sc:hasOutput.
+
+sc:hasNextStep
+    owl:propertyChainAxiom (
+        sc:hasOutput
+        sc:inputOf
+    ).
