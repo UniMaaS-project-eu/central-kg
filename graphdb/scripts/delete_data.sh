@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-GRAPHDB_URL="http://localhost:7200"
-REPO_ID="centralKG"
+. .env
+
+echo "Wipe repo ${REPO_ID}"
 
 curl -s \
   -X POST \
