@@ -14,4 +14,4 @@ WORKDIR /app
 COPY ./main.py .
 
 #see https://docs.docker.com/reference/dockerfile/#cmd
-CMD ["uvicorn",  "main:app",  "--host 0.0.0.0",  "--port", "8000"]
+CMD ["uvicorn",  "main:app",  "--host",  "0.0.0.0",  "--port", "8000"]
