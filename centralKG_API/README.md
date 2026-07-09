@@ -2,7 +2,7 @@
 
 This folder implements the access API for the Central KG, as defined by the [openapi def](../docs/openapi.json).
 
-## Requirements
+## Run the api natively
 
 Install a conda distribution:
 ```sh
@@ -23,7 +23,7 @@ conda install conda-forge::pydantic
 pip install fastapi[all] python-dotenv uvicorn
 ```
 
-It expects an SPARQL endpoint accessible and the endpoint user and password. 
+It expects a SPARQL endpoint accessible and the endpoint user and password. 
 This can be set in the `api.env` file through the environment variables:
 
 ```sh
@@ -38,6 +38,23 @@ scripts/start-api.sh
 ```
 
 The api will run on the port **8000** by default.
+
+## Run the api on docker
+
+See the [Dockerfile](./Dockerfile)
+
+See the [api.env](./api.env)
+
+Do the following:
+```sh
+# build the image
+scripts/build-image.sh
+
+# run the image
+docker compose up
+```
+
+Open the url `http://localhost/docs` in a browser.
 
 ## API Specification and Documentation
 
