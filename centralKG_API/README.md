@@ -15,7 +15,7 @@ chmod +x Miniconda3-latest-Linux-x86_64.sh
 conda list
 ```
 
-Install the required libraries for running this API. In a conda environment the installation be done through the following:
+Install the required libraries for running this API. In a conda environment the installation can be done through the following:
 
 ```sh
 conda install -c conda-forge fastapi
