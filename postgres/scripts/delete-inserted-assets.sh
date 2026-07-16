@@ -1,0 +1,1 @@
+docker compose exec central-platform-postgres  psql -U admin -d mydb -c "DELETE FROM inserted_assets"
