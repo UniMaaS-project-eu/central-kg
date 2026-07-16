@@ -42,6 +42,8 @@ services:
       - .env/standalone-catalog.env:/etc/app/env-file:ro
     networks:
       - edc-network
+    ports:
+      - "8184:8184"
 
   central-platform-digital-thread:
     hostname: central-platform-digital-thread
