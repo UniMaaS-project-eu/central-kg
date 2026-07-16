@@ -44,6 +44,7 @@ services:
       - edc-network
     ports:
       - "8184:8184"
+      - "8181:8181"
 
   central-platform-digital-thread:
     hostname: central-platform-digital-thread
