@@ -52,13 +52,15 @@ services:
     container_name: central-platform-digital-thread
     env_file:
       - ./env/digital_thread.env
+    volumes:
+      - ../deployment/config/demo_dms.json:/etc/app/demo_dms.json:ro
     networks:
       - edc-network
 
-  centralkg-api:
+  central-platform-kg-api:
     image: centralkg-api
-    hostname: centralkg-api
-    container_name: centralkg-api
+    hostname: central-platform-kg-api
+    container_name: central-platform-kg-api
     env_file: "./centralKG_API/api.env"
     ports:
       - "80:8000"
