@@ -193,6 +193,4 @@ pyrightconfig.json
 
 graphdb_centralKG/graphdb-data/
 
-graphdb_centralKG/config/rules/
-
-graphdb_centralKG/notes/
+postgres-data/

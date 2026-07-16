@@ -1,0 +1,69 @@
+
+services:
+  central-platform-graphdb:
+    hostname: central-platform-graphdb
+    image: ontotext/graphdb:10.3.3
+    container_name: central-platform-graphdb
+    restart: unless-stopped
+    environment:
+      GDB_HEAP_SIZE: 4g
+      GDB_MIN_MEM: 1g
+      GDB_MAX_MEM: 4g
+      GRAPHDB_SECURITY: "true"
+      GRAPHDB_ADMIN_PASSWORD: "mypassword"   # change this!
+    ports:
+      - "7200:7200"
+    volumes:
+      - ./graphdb/graphdb-data:/opt/graphdb/home
+      - ./graphdb/config:/config
+    networks:
+      - edc-network
+
+  central-platform-postgres:
+    hostname: central-platform-postgres
+    image: postgres:18
+    container_name: central-platform-postgres
+    environment:
+      POSTGRES_USER: admin 
+      POSTGRES_PASSWORD: admin # change this!
+      POSTGRES_DB: mydb     
+    volumes:
+      - ./postgres_data:/var/lib/postgresql
+    ports:
+      - "5433:5432"
+    networks:
+      - edc-network
+
+  central-platform-federated-catalog:
+    hostname: central-platform-federated-catalog
+    image: standalone-federated-catalog
+    container_name: central-platform-federated-catalog
+    volumes:
+      - .env/standalone-catalog.env:/etc/app/env-file:ro
+    networks:
+      - edc-network
+
+  central-platform-digital-thread:
+    hostname: central-platform-digital-thread
+    image: digital-thread 
+    container_name: central-platform-digital-thread
+    env_file:
+      - ./env/digital_thread.env
+    networks:
+      - edc-network
+
+  centralkg-api:
+    image: centralkg-api
+    hostname: centralkg-api
+    container_name: centralkg-api
+    env_file: "./centralKG_API/api.env"
+    ports:
+      - "80:8000"
+    networks:
+      - edc-network
+
+networks:
+  edc-network:
+    driver: bridge
+    name: edc-network
+    external: true    
