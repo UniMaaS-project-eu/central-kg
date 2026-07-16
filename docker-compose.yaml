@@ -39,7 +39,7 @@ services:
     image: standalone-federated-catalog
     container_name: central-platform-federated-catalog
     volumes:
-      - .env/standalone-catalog.env:/etc/app/env-file:ro
+      - ./env/standalone-catalog.env:/etc/app/env-file:ro
     networks:
       - edc-network
     ports:
