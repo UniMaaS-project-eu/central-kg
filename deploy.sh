@@ -21,5 +21,6 @@ set +o allexport
 
 echo "deploy.sh: invoke docker compose $1 $2"
 echo ".. CONNECTOR_HOST ${CONNECTOR_HOST}"
-
-docker compose $1 $2
+echo ".. INSTANCE_NAME ${ED_NODE_INSTANCE_NAME}"
+echo
+docker compose --project-name "${ED_NODE_INSTANCE_NAME}" $1 $2
