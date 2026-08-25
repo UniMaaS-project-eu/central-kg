@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 MODE=$1
-SERVICE=$1
+SERVICE=$2
 ENV_FILE="../../ed-node/.env-connectorcp"
 
 echo "deploy.sh: deploy $1 $2"
-echo ".. action: $1"
-echo ".. service: $2"
+echo ".. action (up, down, ...): $1"
+echo ".. service (central-platform-federated-catalog, ...): $2"
 echo ".. env-file: $ENV_FILE"
 
 if [ ! -f "$ENV_FILE" ]; then
