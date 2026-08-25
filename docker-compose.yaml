@@ -73,7 +73,7 @@ services:
       # If this were to be touched it would be necessary:
       # a) define - EDC_VAULT_HASHICORP_TOKEN_FILE=/vault-token/token
       # b) no use -Dedc.vault.hashicorp.token in entrypoint
-      - EDC_VAULT_HASHICORP_TOKEN=hvs.CAESINBbqCBur_pxAwnhUlwH2qfdTbG3j1a3bR9omlYLKY_tGh4KHGh2cy52aktZdXBiY2xNdmprd1N1N29IUTVmekg
+      # EDC_VAULT_HASHICORP_TOKEN=hvs.CAESINBbqCBur_pxAwnhUlwH2qfdTbG3j1a3bR9omlYLKY_tGh4KHGh2cy52aktZdXBiY2xNdmprd1N1N29IUTVmekg
       #- EDC_VAULT_HASHICORP_API_SECRET_PATH= At the moment there is no choice and it takes the configuration file (edc.vault.hashicorp.api.secret.path) by default.
       # POSTGRES
       - EDC_DATASOURCE_DEFAULT_URL=jdbc:postgresql://central-platform-postgres:5432/postgrescp
