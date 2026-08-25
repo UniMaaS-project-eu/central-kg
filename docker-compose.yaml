@@ -76,9 +76,9 @@ services:
       - EDC_VAULT_HASHICORP_TOKEN=hvs.CAESINBbqCBur_pxAwnhUlwH2qfdTbG3j1a3bR9omlYLKY_tGh4KHGh2cy52aktZdXBiY2xNdmprd1N1N29IUTVmekg
       #- EDC_VAULT_HASHICORP_API_SECRET_PATH= At the moment there is no choice and it takes the configuration file (edc.vault.hashicorp.api.secret.path) by default.
       # POSTGRES
-      - EDC_DATASOURCE_DEFAULT_URL=jdbc:postgresql://central-platform-postgres:5432/postgres-cp
-      - EDC_DATASOURCE_DEFAULT_USER=cp_posgres_user
-      - EDC_DATASOURCE_DEFAULT_PASSWORD=cp_posgres_pwd
+      - EDC_DATASOURCE_DEFAULT_URL=jdbc:postgresql://central-platform-postgres:5432/postgrescp
+      - EDC_DATASOURCE_DEFAULT_USER=admin
+      - EDC_DATASOURCE_DEFAULT_PASSWORD=admin
       - EDC_SQL_SCHEMA_AUTOCREATE=true
 
 
