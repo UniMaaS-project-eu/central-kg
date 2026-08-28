@@ -43,6 +43,7 @@ Make sure
 - settings
   - [standalone-catalog.env](./env/standalone-catalog.env)
     - note the vault token `edc.vault.hashicorp.token`
+    - to be retrieved from `\vault-token\token` on connectorcp connector file system.
 
 ## Run
 
@@ -53,6 +54,12 @@ Make sure
 ```sh
 # start postgres
 ./deploy.sh up central-platform-postgres
+
+# create the inserted table
+postgres/scripts/create-inserted-table.sh
+
+# check
+postgres/scripts/psql-shell.sh
 
 # stop postgres
 ./deploy.sh down central-platform-postgres
