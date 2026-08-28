@@ -81,7 +81,6 @@ services:
       - EDC_DATASOURCE_DEFAULT_PASSWORD=admin
       - EDC_SQL_SCHEMA_AUTOCREATE=true
 
-
   central-platform-digital-thread:
     hostname: central-platform-digital-thread
     image: digital-thread 
