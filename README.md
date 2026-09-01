@@ -51,12 +51,10 @@ Make sure
   - [deploy.sh](./deploy.sh)
     - used for starting/stopping cp services
 
+### Postgres
 ```sh
 # start postgres
 ./deploy.sh up central-platform-postgres
-
-# create the inserted table
-postgres/scripts/create-inserted-table.sh
 
 # check
 postgres/scripts/psql-shell.sh
@@ -64,19 +62,40 @@ postgres/scripts/psql-shell.sh
 # stop postgres
 ./deploy.sh down central-platform-postgres
 
+# create the inserted table
+postgres/scripts/create-inserted-table.sh
+```
+
+### Graphdb
+
+See [README](./graphdb/README.md).
+
+```sh
+# start graphdb
+./deploy.sh up central-platform-graphdb
+```
+
+### Federated Catalog
+
+```sh
 # start the federated catalog
-./deploy.sh up central-platform-federated-catalog | tee log/central-platform-federated-catalog-run1.log
+./deploy.sh up central-platform-federated-catalog | tee log/central-platform-federated-catalog-run10.log
 
 # stop the federated catalog
 ./deploy.sh down central-platform-federated-catalog
 ./deploy.sh restart central-platform-federated-catalog
 ```
 
+## Digital thread
 
+```sh
+# start the digital thread
+./deploy.sh up central-platform-digital-thread 2>&1 | tee log/central-platform-digital-thread-run1.log
 
-## GraphDB
+# stop the digital thread
+./deploy.sh down central-platform-digital-thread 
+```
 
-See [README](./graphdb/README.md).
 
 ## API
 
