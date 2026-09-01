@@ -69,6 +69,7 @@ postgres/scripts/psql-shell.sh
 
 # stop the federated catalog
 ./deploy.sh down central-platform-federated-catalog
+./deploy.sh restart central-platform-federated-catalog
 ```
 
 
