@@ -90,7 +90,7 @@ See [README](./graphdb/README.md).
 
 ```sh
 # start the digital thread
-./deploy.sh up central-platform-digital-thread 2>&1 | tee log/central-platform-digital-thread-run1.log
+./deploy.sh up central-platform-digital-thread 2>&1 | tee log/central-platform-digital-thread-run10.log
 
 # stop the digital thread
 ./deploy.sh down central-platform-digital-thread 
