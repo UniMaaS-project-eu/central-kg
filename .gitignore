@@ -186,4 +186,4 @@ pyrightconfig.json
 
 graphdb_centralKG/graphdb-data/
 
-postgres/postgres-data/
+postgres/postgres_data/
