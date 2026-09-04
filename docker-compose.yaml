@@ -50,12 +50,10 @@ services:
       - "8181:8181" # management
 
     environment:
-      - EDC_HOSTNAME=${CONNECTOR_HOST}
       # IdentityHub
       - EDC_IAM_IDENTITYHUB_URL=http://edc-ih-${ED_NODE_INSTANCE_NAME}:7093
       - EDC_IAM_IDENTITYHUB_DID=${ED_NODE_DID}
       # Token validation endpoint
-      - EDC_DATAPLANE_TOKEN_VALIDATION_ENDPOINT=http://${ED_NODE_INSTANCE_NAME}:8083/api/control/v3/dataplane/token
       - EDC_CONTROLPLANE_VALIDATION_ENDPOINT=http://${ED_NODE_INSTANCE_NAME}:8083/api/control/v3/dataplane/token
       # Logging
       - EDC_LOG_LEVEL=DEBUG
@@ -80,6 +78,8 @@ services:
     hostname: central-platform-digital-thread
     image: digital-thread 
     container_name: central-platform-digital-thread
+    extra_hosts:
+      - "michel-laptop:172.17.0.1"
     env_file:
       - ./env/digital_thread.env
     volumes:
