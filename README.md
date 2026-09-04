@@ -51,6 +51,15 @@ Make sure
   - [deploy.sh](./deploy.sh)
     - used for starting/stopping cp services
 
+The full platform
+```sh
+# start all services
+./deploy.sh up 
+
+# stope all services
+./deploy.sh down
+```
+
 ### Postgres
 ```sh
 # start postgres
@@ -82,7 +91,6 @@ See [README](./graphdb/README.md).
 ./deploy.sh up central-platform-federated-catalog | tee log/central-platform-federated-catalog-run10.log
 
 # stop the federated catalog
-./deploy.sh down central-platform-federated-catalog
 ./deploy.sh restart central-platform-federated-catalog
 ```
 
@@ -96,8 +104,14 @@ See [README](./graphdb/README.md).
 ./deploy.sh down central-platform-digital-thread 
 ```
 
-
 ## API
 
 See [README](./centralKG_API/README.md).
 
+```sh
+# start the api
+./deploy.sh up central-platform-kg-api 2>&1 | tee log/central-platform-kg-api-run10.log
+
+# stop the api
+./deploy.sh down central-platform-kg-api 
+```

@@ -7,6 +7,12 @@ services:
     image: ontotext/graphdb:10.3.3
     container_name: central-platform-graphdb
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:7200/repositories/centralKG/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 60s    
     environment:
       GDB_HEAP_SIZE: 4g
       GDB_MIN_MEM: 1g
@@ -25,6 +31,12 @@ services:
     hostname: central-platform-postgres
     image: postgres:18
     container_name: central-platform-postgres
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 60s    
     environment:
       POSTGRES_USER: admin 
       POSTGRES_PASSWORD: admin # change this!
@@ -40,6 +52,11 @@ services:
     hostname: central-platform-federated-catalog
     image: standalone-federated-catalog
     container_name: central-platform-federated-catalog
+    depends_on:
+      connector:
+        condition: service_healthy
+      ih-connector:
+        condition: service_healthy
     volumes:
       - vault-init-data-connectorcp:/vault-token:ro
       - ./env/standalone-catalog.env:/etc/app/env-file:ro
@@ -48,7 +65,6 @@ services:
     ports:
       - "8184:8184" # catalog
       - "8181:8181" # management
-
     environment:
       # IdentityHub
       - EDC_IAM_IDENTITYHUB_URL=http://edc-ih-${ED_NODE_INSTANCE_NAME}:7093
@@ -78,6 +94,11 @@ services:
     hostname: central-platform-digital-thread
     image: digital-thread 
     container_name: central-platform-digital-thread
+    depends_on:
+      central-platform-graphdb:
+        condition: service_healthy
+      central-platform-postgres:
+        condition: service_healthy
     extra_hosts:
       - "michel-laptop:172.17.0.1"
     env_file:
