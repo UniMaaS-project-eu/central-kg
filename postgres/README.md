@@ -5,9 +5,11 @@
 ## PSQL
 
 - start interactively: [script](./scripts/psql-shell.sh)
+- [reference](https://docs.postgresql.fr/18/app-psql.html)
 - good commands
   - `\l`: list databases
   - `\dt`: list tables
+  - `\c <DB>`: connect (use) database `<DB>`
 
 ## Queries
 
